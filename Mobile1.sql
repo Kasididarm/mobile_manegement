@@ -48,4 +48,8 @@ CREATE table Mobile_number(
     customer_id:int,
     Activation_date:DATETIME,
     Status:VARCHAR(255)
+);
+INSERT INTO customer(
+    VALUE(1,"John ","Swanda","John@gmail.com","num"),
+    VALUE(2,"Jame","Jatsu","Jame@gmail.com","")
 )
