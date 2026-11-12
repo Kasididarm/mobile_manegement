@@ -1,3 +1,4 @@
+USE Mobile;
 INSERT INTO customer(customer_id,first_name,last_name,email,status)
 VALUES (1,'sponge','bob','squarepant@gmail.com','active'),
 (2,'sailor','moon','sailormoon@gmail.com','active'),
