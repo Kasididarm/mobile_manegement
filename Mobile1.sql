@@ -1,51 +1,67 @@
+CREATE DATABASE IF NOT EXISTS Mobile;
 USE Mobile;
 
-CREATE table sim_card(
-    Sim_id INT,
-    phone_number:INT,
-    Sim_type VARCHAR(255),
-
-
-);
-CREATE table payment(
-    Bill_id:INT,
-    payment_date:DATETIME,
-    Amount:int,
-);
-CREATE table BIil(
-    Bill_id:int,
-    customer_id:int,
-    Billing_period:DATETIME,
-    Issue_date:DATETIME,
-    Due_Date:DATETIME,
-    Total_Amount:int,
-    Status:VARCHAR(255)
-);
 CREATE table customer(
-    customer_id:int,
-    First_name:VARCHAR(255),
-    Last_name:VARCHAR(255),
-    Email:VARCHAR(255),
-    Status:VARCHAR(255)
+    customer_id int PRIMARY KEY,
+    first_name VARCHAR(255),
+    last_name VARCHAR(255),
+    email VARCHAR(255),
+    status VARCHAR(255)
 );
-CREATE table Service_plan(
-    plan_id:int,
-    Plan_name:DATETIME,
-    Monthly_fee:int,
-    Date_limit:int,
-    Call_limit:int
+CREATE table service_plan(
+    plan_id int PRIMARY KEY,
+    plan_name VARCHAR(255),
+    monthly_fee int,
+    date_limit int,
+    call_limit int
 );
-CREATE table Subscription(
-    Psubscription_id:int,
-    Plan_id:int,
-    Start_date:DATETIME,
-    End_date:DATETIME,
-    phone_number:VARCHAR(255),
-    Staus:VARCHAR(255)
+
+CREATE table mobile_number(
+    phone_number VARCHAR(255) PRIMARY KEY,
+    customer_id int,
+    activation_date DATETIME,
+    status VARCHAR(255),
+    FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
 );
-CREATE table Mobile_number(
-    phone_number:VARCHAR(255),
-    customer_id:int,
-    Activation_date:DATETIME,
-    Status:VARCHAR(255)
-)
+
+CREATE table bill(
+    bill_id int PRIMARY KEY,
+    customer_id int,
+    billing_period DATETIME,
+    issue_date DATETIME,
+    due_Date DATETIME,
+    total_Amount int,
+    status VARCHAR(255),
+    FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
+);
+
+CREATE table sim_card(
+    sim_id INT PRIMARY KEY,
+    phone_number VARCHAR(255),
+    sim_type VARCHAR(255),
+    FOREIGN KEY (phone_number) REFERENCES mobile_number(phone_number)
+);
+
+CREATE table subscription(
+    subscription_id int PRIMARY KEY,
+    plan_id int,
+    start_date DATETIME,
+    end_date DATETIME,
+    phone_number VARCHAR(255),
+    status VARCHAR(255),
+    FOREIGN KEY (Plan_id) REFERENCES service_plan(plan_id),
+    FOREIGN KEY (phone_number) REFERENCES mobile_number(phone_number) 
+);
+
+CREATE table payment(
+    payment_id INT PRIMARY KEY,
+    bill_id INT,
+    payment_date DATETIME,
+    amount int
+);
+
+DROP DATABASE Mobile;
+
+CREATE DATABASE Mobile;
+USE Mobile;
+
