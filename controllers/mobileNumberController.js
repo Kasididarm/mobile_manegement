@@ -1,4 +1,4 @@
-const pool = require('../db');
+const pool = require('../db.js');
 const crud = require('./crud.js');
 
 module.exports = {
