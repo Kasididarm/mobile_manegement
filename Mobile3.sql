@@ -68,4 +68,6 @@ WHERE subscription_id = 4;
 SELECT *
 FROM subscription
 WHERE subscription_id = 4;
-
+-- ลบ subscription
+DELETE FROM subscription
+WHERE subscription_id = 4;
