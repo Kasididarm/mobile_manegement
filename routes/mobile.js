@@ -8,6 +8,7 @@ const bill = require('../controllers/billController');
 const payment = require('../controllers/paymentcontroller');
 const servicePlan = require('../controllers/serviceplancontroller');
 const subscription = require('../controllers/subscriptioncontroller');
+const simCard = require('../controllers/simcardcontroller');
 
 // ========================
 // CUSTOMER CRUD
@@ -68,5 +69,9 @@ router.delete('/subscriptions/:id', subscription.remove);
 router.get('/bills/:id/payments', bill.payments);
 
 router.post('/payments/pay', payment.pay);
+
+router.post('/mobile-numbers', mobileNumber.create);
+
+router.post('/sim-cards', simCard.create);
 
 module.exports = router;

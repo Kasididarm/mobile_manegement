@@ -166,6 +166,46 @@ document.getElementById('subscriptionForm').addEventListener('submit', async eve
     }
 });
 
+const simForm = document.getElementById('simForm');
+
+if (simForm) {
+    simForm.addEventListener('submit', async event => {
+        event.preventDefault();
+
+        if (!phone) {
+            alert('Missing phone number.');
+            return;
+        }
+
+        const simType =
+            document.getElementById('simTypeInput').value;
+
+        const simStatus =
+            document.getElementById('simStatusInput').value;
+
+        try {
+            await api(`${API}/sim-cards`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    Phone_Number: phone,
+                    SIM_Type: simType,
+                    Status: simStatus
+                })
+            });
+
+            alert('SIM card assigned successfully.');
+
+            await loadMobileDetails();
+
+        } catch (error) {
+            alert(`Assign SIM failed: ${error.message}`);
+        }
+    });
+}
+
 Promise.all([loadPlans(), loadMobileDetails()]).catch(error => {
     console.error(error);
 });

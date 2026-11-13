@@ -36,9 +36,10 @@ CREATE table bill(
 );
 
 CREATE table sim_card(
-    sim_id INT PRIMARY KEY,
+    sim_id INT PRIMARY KEY AUTO_INCREMENT,
     phone_number VARCHAR(255),
     sim_type VARCHAR(255),
+    status VARCHAR(255),
     FOREIGN KEY (phone_number) REFERENCES mobile_number(phone_number)
 );
 
@@ -106,4 +107,10 @@ REFERENCES customer(customer_id);
 -- add
 ALTER TABLE payment
 ADD COLUMN payment_method VARCHAR(255);
+
+ALTER TABLE sim_card
+ADD COLUMN status VARCHAR(255);
+
+ALTER TABLE sim_card
+MODIFY sim_id INT NOT NULL AUTO_INCREMENT;
 
