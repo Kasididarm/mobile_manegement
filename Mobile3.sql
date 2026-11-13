@@ -65,6 +65,7 @@ UPDATE subscription
 SET status = 'Inactive', end_date = '2026-12-01'
 WHERE subscription_id = 4;
 
+
 SELECT *
 FROM subscription
 WHERE subscription_id = 4;
