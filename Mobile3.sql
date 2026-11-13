@@ -1,3 +1,3 @@
 USE Mobile;
-SELECT * FROM customer WHERE id=1;
+SELECT customer_id, first_name ,last_name FROM customer WHERE id=1;
 UPDATE customer SET service_plan;
