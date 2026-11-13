@@ -54,10 +54,11 @@ CREATE table subscription(
 );
 
 CREATE table payment(
-    payment_id INT PRIMARY KEY,
+    payment_id INT PRIMARY KEY AUTO_INCREMENT,
     bill_id INT,
     payment_date DATETIME,
-    amount int
+    amount int,
+    payment_method VARCHAR(255)
 );
 
 DROP DATABASE Mobile;
@@ -71,6 +72,38 @@ CREATE table Mobile_number(
     Activation_date:DATETIME,
     Status:VARCHAR(255)
 );
-
+-- แก้ตารางให้ตรง controller
 ALTER TABLE service_plan
 RENAME COLUMN date_limit TO data_limit;
+
+ALTER TABLE customer
+MODIFY customer_id INT NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE subscription
+MODIFY subscription_id INT NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE payment
+MODIFY payment_id INT NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE mobile_number
+DROP FOREIGN KEY mobile_number_ibfk_1;
+
+ALTER TABLE bill
+DROP FOREIGN KEY bill_ibfk_1;
+
+ALTER TABLE customer
+MODIFY customer_id INT NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE mobile_number
+ADD CONSTRAINT fk_mobile_customer
+FOREIGN KEY (customer_id)
+REFERENCES customer(customer_id);
+
+ALTER TABLE bill
+ADD CONSTRAINT fk_bill_customer
+FOREIGN KEY (customer_id)
+REFERENCES customer(customer_id);
+-- add
+ALTER TABLE payment
+ADD COLUMN payment_method VARCHAR(255);
+

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mobile Number Details</title>
+</head>
+<body>
+
+<a href="index.html">Customers</a>
+
+<h1>Mobile Number Details</h1>
+
+<section>
+    <h2>Mobile Number</h2>
+
+    <p>Phone: <span id="phoneNumber"></span></p>
+    <p>Status: <span id="mobileStatus"></span></p>
+    <p>Activation Date: <span id="activationDate"></span></p>
+</section>
+
+<hr>
+
+<section>
+    <h2>SIM Card</h2>
+
+    <p>SIM ID: <span id="simId"></span></p>
+    <p>SIM Type: <span id="simType"></span></p>
+    <p>Status: <span id="simStatus"></span></p>
+</section>
+
+<hr>
+
+<section>
+    <h2>Current Subscription</h2>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Subscription ID</th>
+                <th>Plan</th>
+                <th>Monthly Fee</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody id="subscriptionTable">
+        </tbody>
+    </table>
+</section>
+
+<hr>
+
+<section>
+    <h2>Subscribe to Service Plan</h2>
+
+    <form id="subscriptionForm">
+
+        <label>Plan:</label>
+        <select id="planSelect">
+            <!-- ใส่ service plans จาก database -->
+        </select>
+
+        <label>Start Date:</label>
+        <input type="date" id="startDate">
+
+        <label>End Date:</label>
+        <input type="date" id="endDate">
+
+        <button type="submit">Subscribe</button>
+    </form>
+</section>
+
+    <script src="mobile.js"></script>
+</body>
+</html>

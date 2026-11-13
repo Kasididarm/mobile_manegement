@@ -1,21 +1,45 @@
 <!DOCTYPE html>
 <html>
-    <head></head>
-    <body>
-        <h1>Data Manegement Mobile Systerm</h1>
-        <div class="Mobile">
-            <label class="type_mobile"><h2>Type Mobile</h2></label>
-            <select class="choose_mobile">
-                <option class="ais">Ais</option>
-                <option class="true">True</option>
-                <option class="dtac">Dtac</option>
-            </select>
-            <div class="Information">
-                <label>Name</label>
-                <input type="name" id="user">
-                <label>Phone Number</label>
-                <input type="text" id="phone Number">
-            </div>
-        </div>
-    </body>
+<head>
+    <title>Mobile Management</title>
+</head>
+<body>
+
+<h1>Mobile Communication Management</h1>
+
+<h2>Customers</h2>
+
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Customer ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody id="customerTable">
+        <!-- JS ใส่ข้อมูล customer ตรงนี้ -->
+    </tbody>
+</table>
+
+<h2>Add Customer</h2>
+
+<form id="customerForm">
+    <input type="text" id="firstName" placeholder="First name">
+    <input type="text" id="lastName" placeholder="Last name">
+    <input type="email" id="email" placeholder="Email">
+
+    <select id="customerStatus">
+        <option value="Active">Active</option>
+        <option value="Inactive">Inactive</option>
+    </select>
+
+    <button type="submit">Add</button>
+</form>
+    <script src="script.js"></script>
+</body>
 </html>

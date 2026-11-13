@@ -94,6 +94,10 @@ CALL create_subscription(
     '2027-11-13',
     '0812345678'
 );
+-- test ว่า create subscription แล้ว
+SELECT *
+FROM subscription
+WHERE subscription_id = 4;
 
 -- test payment
 SELECT *
@@ -104,8 +108,14 @@ SELECT *
 FROM bill
 WHERE bill_id = 1002;
 
--- ลบ payment เผื่อ test ใหม่
-ROLLBACK;
-
 -- ยกเลิก subscription เปลี่ยน status เฉยๆ ไม่ได้ลบ subscription ถ้าจะลบให้ลบแบบด้านบน
 CALL cancel_subscription(4, '2026-12-01');
+
+-- แก้ transaction ลบใหม่ ถ้าจะเทสซ้ำ
+DELETE FROM payment
+WHERE payment_id = 3;
+
+UPDATE bill
+SET status = 'Unpaid'
+WHERE bill_id = 1002;
+
