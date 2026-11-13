@@ -12,7 +12,7 @@ CREATE table service_plan(
     plan_id int PRIMARY KEY,
     plan_name VARCHAR(255),
     monthly_fee int,
-    date_limit int,
+    data_limit int,
     call_limit int
 );
 
@@ -71,3 +71,6 @@ CREATE table Mobile_number(
     Activation_date:DATETIME,
     Status:VARCHAR(255)
 );
+
+ALTER TABLE service_plan
+RENAME COLUMN date_limit TO data_limit;

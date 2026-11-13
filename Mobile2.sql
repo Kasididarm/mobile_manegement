@@ -4,7 +4,7 @@ VALUES (1,'sponge','bob','squarepant@gmail.com','active'),
 (2,'sailor','moon','sailormoon@gmail.com','active'),
 (3,'peter','parker','spiderman@gmail.com','inactive'),(4,'dora','emon','dorayaki@gmail.com','inactive');
 
-INSERT INTO service_plan(plan_id, plan_name, monthly_fee, date_limit, call_limit)
+INSERT INTO service_plan(plan_id, plan_name, monthly_fee, data_limit, call_limit)
 VALUES (101, 'Basic', 299, 20, 100),(102, 'Standard', 599, 50, 300),(103, 'Unlimited', 899, 100, 1000);
 
 
@@ -52,6 +52,5 @@ VALUES
 VALUES
 (1, 1001, '2026-11-05 13:30:00', 299),
 (2, 1003, '2026-11-07 16:45:00', 899);
-
 
 
